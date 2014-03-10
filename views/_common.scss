@@ -1,0 +1,39 @@
+@mixin triangle($direction, $color, $size) {
+ 
+  	content: '';
+  	position: absolute;
+  	height: 0;
+  	width: 0;
+
+
+	@if $direction == "bottomleft" {
+		left: 0px;
+		top: 100%;
+		border-top: $size solid $color;
+		border-left: $size solid transparent;
+	}
+	@else if $direction == "bottomright" {
+		right: 0px;
+		top: 100%;
+		border-top: $size solid $color;
+		border-right: $size solid transparent;
+	}
+	@else if $direction == "upright" {
+		right: 0;
+		bottom: 100%;
+		border-bottom: $size solid $color;
+		border-left: $size solid transparent;
+	}
+	@else if $direction == "upleft" {
+		left: 0;
+		bottom: 100%;
+		border-bottom: $size solid $color;
+		border-right: $size solid transparent;
+	}
+ 
+}
+
+h5 {
+	color: black;
+	background-color: white;
+}

@@ -1,0 +1,81 @@
+/* Imports - From Compass */
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+@import "compass/typography";
+
+
+/* Internal Import - From Other SCSS */
+@import "common";
+
+
+
+/* Globals */
+$gray: #666;
+$body-color: #C4C4C4;
+$button-color: #0d7963;
+$font-size: 15px;
+$navcolor: #ef7a06;
+$triangle: 20px;
+
+
+body {
+/* Using Globals */
+  font-size: $font-size;
+  color: $body-color;
+  width: 80%;
+  margin: 0 auto;
+  font: normal $font-size "Freckle Face";
+}
+
+
+/* List Elements - Nestting */
+nav {
+	ul {
+	  @include horizontal-list;
+  
+	   li {
+	      padding: 5px 30px 5px 0;
+	      a {
+	        text-decoration: none;
+	        color: white;
+		font-weight: 800;
+		font-size: #{45px/$font-size}em;
+	      }
+	      a:hover {
+		color: shade($navcolor, 40%);
+	      }
+	   }
+	}
+
+	margin-bottom: 60px;
+	position: relative;
+	background-color: lighten($button-color,5%);
+}
+
+.box1 {
+  /* Mixins - lighten */
+  @include box-shadow(lighten($button-color,40%) -8px 8px 0);
+  @include min-width(20px);
+  max-width: 100px;
+  cursor: pointer;
+  background-color: $button-color;
+  padding: 10px 5px 10px 5px;
+  color: white;
+  font-family: "Comic Sans"
+}
+
+.box1:hover {
+  background-color: shade($button-color, 40%);
+}
+
+
+nav:before {
+	@include triangle("bottomright",$button-color,$triangle);
+}
+
+nav:after {
+	@include triangle("bottomleft",$button-color,$triangle);
+}
+
+/* End */
